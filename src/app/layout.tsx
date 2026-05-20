@@ -24,7 +24,7 @@ const figtree = Figtree({
   variable: '--font-figtree',
 });
 
-const cfPro = localFont({
+const sfPro = localFont({
   src: [
     {
       path: '../../public/fonts/sfpro/SF-Pro-Display-Regular.woff2',
@@ -75,9 +75,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${figtree.variable} ${cfPro.variable} ${poppins.variable} ${satoshi.variable} h-full antialiased`}
+      className={`${outfit.variable} ${figtree.variable} ${sfPro.variable} ${poppins.variable} ${satoshi.variable} h-full antialiased`}
     >
-      <body className="min-h-full min-w-[360px] flex flex-col">{children}</body>
+      <body className="min-h-full w-full min-w-[360px] flex flex-col">{children}</body>
     </html>
   );
 }

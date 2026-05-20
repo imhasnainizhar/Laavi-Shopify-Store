@@ -3,7 +3,7 @@
 export default function HorizontalSpacing({ text }: { text?: string }) {
   if (!text) {
     return (
-      <div className="w-full max-w-[500px] h-px bg-ghost-white" />
+      <div className="w-full max-w-[510px] h-px bg-ghost-white" />
     );
   }
 

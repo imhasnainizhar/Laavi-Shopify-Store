@@ -11,12 +11,12 @@ export default function FAQItem({ faq, isOpen, className, onToggle }: FAQItemPro
           gap-4 text-left transition-colors duration-200`}
       >
         <span
-          className="font-medium text-[19px] text-text-primary font-satoshi"
+          className="font-bold text-text-base text-text-primary font-satoshi"
         >
           {faq.question}
         </span>
         <span
-          className={`transition-transform duration-300 ease-in-out ${isOpen ? "rotate-45 scale-110" : "rotate-0 scale-100"
+          className={`font-bold text-fluid-lg transition-transform duration-300 ease-in-out ${isOpen ? "rotate-45 scale-110" : "rotate-0 scale-100"
             }`}
           style={{
             color: isOpen ? "#7c5cbf" : "#000",
@@ -33,7 +33,7 @@ export default function FAQItem({ faq, isOpen, className, onToggle }: FAQItemPro
         }}
       >
         <p
-          className="text-[14px] font-medium font-satoshi text-text-secondary  py-[6px]"
+          className="text-fluid-base font-medium font-satoshi text-text-secondary  py-[6px]"
         >
           {faq.answer}
         </p>

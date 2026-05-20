@@ -17,13 +17,13 @@ export default function SaleAnnouncement() {
 
                 {isActive ? (
                     <div className="h-full flex justify-center items-center">
-                        <span className="font-bold font-700 text-[clamp(14px,2.7vw,18px)] var(--font-outfit)">LIMITED TIME SALE ENDS IN: </span>
+                        <span className="font-bold font-700 text-fluid-base var(--font-outfit)">LIMITED TIME SALE ENDS IN: </span>
                         <span>
                             <SaleTimer />
                         </span>
                     </div>
                 ) : (
-                    <div className={`font-bold font-700 text-[clamp(14px,2.7vw,18px)] var(--font-outfit)`}>Sale Ended!</div>
+                    <div className={`font-bold font-700 text-fluid-base var(--font-outfit)`}>Sale Ended!</div>
                 )}
             </div>
         </div>

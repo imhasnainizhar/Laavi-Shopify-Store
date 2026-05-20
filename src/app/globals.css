@@ -1,13 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --rich-purple: #7700FF;
+    /* Color Plate Variables */
+  --rich-purple: #7700ff;
   --text-primary-color: #000000;
-  --text-secondary-color: #5B5B5B;
-  --text-vibrant-lavender: #774CF9;
-  --ghost-white: #FAF6FF;
-  --pale-indigo: #EDE5FF;
+  --text-secondary-color: #5b5b5b;
+  --text-vibrant-lavender: #774cf9;
+  --ghost-white: #faf6ff;
+  --pale-indigo: #ede5ff;
   --light-blue: #d8d0ef;
+
+  /* Fluid text sizes variables */
+  --text-fluid-xs: clamp(8px, calc(7px + 0.2vw), 11px);
+  --text-fluid-sm: clamp(12px, calc(11px + 0.2vw), 14px);
+  --text-fluid-base: clamp(16px, calc(14px + 0.3vw), 18px);
+  --text-fluid-lg: clamp(18px, calc(15px + 0.5vw), 22px);
+  --text-fluid-xl: clamp(24px, calc(19px + 0.8vw), 30px);
+  --text-fluid-2xl: clamp(30px, calc(23px + 1.1vw), 37px);
 }
 
 @custom-media --sd (width <=470px);
@@ -24,29 +33,48 @@
   --color-ghost-white: var(--ghost-white);
   --color-pale-indigo: var(--pale-indigo);
   --color-light-blue: var(--light-blue);
-    /* Mapping the Next.js CSS variables to Tailwind font keys */
+  /* Mapping the Next.js CSS variables to Tailwind font keys */
   --font-poppins: var(--font-poppins);
   --font-outfit: var(--font-outfit);
   --font-figtree: var(--font-figtree);
-  --font-cfpro: var(--font-cfpro);
+  --font-sfpro: var(--font-sfpro);
   --font-satoshi: var(--font-satoshi);
-
+  /* fluid text: clamp(min, calc(intercept + vw-factor), max) */
+  --text-fluid-xs: var(--text-fluid-xs);
+  --text-fluid-sm: var(--text-fluid-sm);
+  --text-fluid-base: var(--text-fluid-base);
+  --text-fluid-lg: var(--text-fluid-lg);
+  --text-fluid-xl: var(--text-fluid-xl);
+  --text-fluid-2xl: var(--text-fluid-2xl);
   /* Media Queries Breakpoints */
   --breakpoint-xs: 320px;
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-2lg: 1100px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
+  /* small/old phones */
+  --breakpoint-sm: 390px;
+  /* iPhone 14/15 — most common mobile */
+  --breakpoint-md: 550px;
+  /* large phones / landscape */
+  --breakpoint-lg: 768px;
+  /* tablet portrait */
+  --breakpoint-xl: 1024px;
+  /* tablet landscape / small laptop */
+  --breakpoint-2xl: 1280px;
+  /* standard desktop */
+  --breakpoint-3xl: 1536px;
+  /* large monitor */
+  --breakpoint-4xl: 1920px;
+  /* ultrawide */
 }
 
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   background: white;
   color: var(--text-secondary-color);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.2;
   overflow-x: hidden;
   text-wrap: wrap;
@@ -64,12 +92,12 @@ body {
   color: white;
 }
 
-
 .testimonial-swiper .mySwiper {
   padding: 0 !important;
 }
 
 /* 1. Corrected Selector: Added space between .testimonial-swiper and .custom-pagination */
+
 .testimonial-swiper .custom-pagination {
   position: relative !important;
   bottom: auto !important;
@@ -82,6 +110,7 @@ body {
 }
 
 /* 2. Style all bullets */
+
 .testimonial-swiper .custom-pagination .swiper-pagination-bullet {
   background: var(--ghost-white, #f8f8ff) !important;
   /* Added fallback color */
@@ -91,6 +120,22 @@ body {
 }
 
 /* 3. Corrected Class: Added the missing dot before .custom-pagination */
+
 .testimonial-swiper .custom-pagination .swiper-pagination-bullet-active {
   background: var(--rich-purple, #6a0dad) !important;
+}
+
+.align-stretched_swiper .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+}
+
+.align-stretched_swiper .swiper-slide {
+  height: auto !important;
+}
+
+.only-overflow-y-visible_swiper .swiper {
+    overflow: unset !important;
+    overflow-x: clip !important;
+    overflow-y: visible;
 }

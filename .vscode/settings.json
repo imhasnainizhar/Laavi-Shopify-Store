@@ -1,0 +1,4 @@
+{
+    "DockerRun.DisableAutoGenerateConfig": true,
+    "tailwindCSS.validate": false,    
+}

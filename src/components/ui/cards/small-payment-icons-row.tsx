@@ -6,10 +6,11 @@ import SmallGooglePayIcon from "@/components/ui/icons/payment/google";
 import SmallMastercardIcon from "@/components/ui/icons/payment/mastercard";
 import SmallPayPalIcon from "@/components/ui/icons/payment/paypal";
 import SmallVisaIcon from "@/components/ui/icons/payment/visa";
+import { ComponentType, SVGProps } from "react";
 
 type SmallPaymentIcons = {
     name: string;
-    comp: React.FC
+    comp: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
 const smallPaymentIcons: SmallPaymentIcons[] = [
@@ -49,9 +50,9 @@ const smallPaymentIcons: SmallPaymentIcons[] = [
 
 export default function SmallPaymentIconsRow() {
     return (
-        <div className="w-full py-4 flex flex-wrap justify-center items-center gap-4 border-b border-gray-100">
+        <div className="w-full min-w-0 max-w-[510px] py-4 gap-1 flex justify-center xl:gap-4 items-center border-b border-gray-100">
             {smallPaymentIcons.map((icon, index) => (
-                <icon.comp key={index} aria-label={icon.name} />
+                <icon.comp key={index} aria-label={icon.name} width={44} height={30} />
             ))}
         </div>
     );

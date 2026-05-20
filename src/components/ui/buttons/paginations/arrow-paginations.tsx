@@ -1,11 +1,11 @@
 export type CorouselPaginationButton = {
     onClick: () => void;
-    varient: "circle-arrow" | "text-arrow"
+    variant: "circle-arrow" | "text-arrow"
 }
 
-export function PrevNavigation({ onClick, varient }: CorouselPaginationButton) {
+export function PrevNavigation({ onClick, variant }: CorouselPaginationButton) {
     // This returns pagination button having an arrow enclosed in a circle.
-    if (varient == "circle-arrow") return (
+    if (variant == "circle-arrow") return (
         <div className="h-auto w-auto transform transition-transform duration-200 
             hover:scale-110 cursor-pointer"
             onClick={onClick}
@@ -18,7 +18,7 @@ export function PrevNavigation({ onClick, varient }: CorouselPaginationButton) {
     );
 
     // This returns pagination button having text corresponding with arrow.
-    if (varient == "text-arrow") return (
+    if (variant == "text-arrow") return (
         <div className="h-[34px] w-[102px] select-none bg-white rounded-[120px] 
             flex justify-center items-center gap-[10px] transform transition-transform 
             duration-200 hover:scale-110 cursor-pointer"
@@ -34,9 +34,9 @@ export function PrevNavigation({ onClick, varient }: CorouselPaginationButton) {
     )
 }
 
-export function NextNavigation({ onClick, varient }: CorouselPaginationButton) {
+export function NextNavigation({ onClick, variant }: CorouselPaginationButton) {
     // This returns pagination button having an arrow enclosed in a circle.
-    if (varient == "circle-arrow") return (
+    if (variant == "circle-arrow") return (
         <div className="h-auto w-auto transform transition-transform duration-200 hover:scale-110 cursor-pointer"
             onClick={onClick}
         >
@@ -48,7 +48,7 @@ export function NextNavigation({ onClick, varient }: CorouselPaginationButton) {
     );
 
     // This returns pagination button having text corresponding with arrow.
-    if (varient == "text-arrow") return (
+    if (variant == "text-arrow") return (
         <div className="h-[34px] w-[102px] select-none bg-white rounded-[120px] 
             flex justify-center items-center gap-[10px] transform transition-transform 
             duration-200 hover:scale-110 cursor-pointer"

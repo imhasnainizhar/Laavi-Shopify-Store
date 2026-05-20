@@ -16,35 +16,50 @@ const pressItems: PressItem[] = [
 
 export default function PressBanner() {
     return (
-        <div>
-            {/* Press Bar */}
+        <div className="w-full overflow-hidden">
+            <style>
+                {`
+                @keyframes scroll {
+                    from { transform: translateX(0); }
+                    to { transform: translateX(-50%); }
+                }
+                .animate-scroll {
+                    animation: scroll 30s linear infinite;
+                }
+                `}
+            </style>
+            
             <div
                 style={{
-                    background: "linear-gradient(90deg, #7c5cbf 0%, #6244a8 100%)",
-                    padding: "22px 32px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "clamp(24px, 5vw, 60px)",
-                    flexWrap: "wrap",
+                    background: "linear-gradient(90deg, #774CF9 64.42%, #EDE5FF 100%)",
+                    marginTop: "75px",
                 }}
+                className="py-[26px]"
             >
-                {pressItems.map(({ label, style }, i) => (
-                    <span
-                        key={i}
-                        style={{
-                            color: "#fff",
-                            fontSize: "17px",
-                            fontWeight: 700,
-                            fontFamily: "'DM Sans', sans-serif",
-                            letterSpacing: "0.04em",
-                            opacity: 0.9,
-                            ...style,
-                        }}
-                    >
-                        {label}
-                    </span>
-                ))}
+                {/* 
+                  To prevent the "lag" or jump, we duplicate the array 
+                  so the end of the list leads perfectly into the start.
+                */}
+                <div className="flex animate-scroll whitespace-nowrap 
+                gap-[clamp(20px,5vw,60px)] w-max">
+                    {[...pressItems, ...pressItems].map(({ label, style }, i) => (
+                        <span
+                            key={i}
+                            className="inline-block"
+                            style={{
+                                color: "#fff",
+                                fontSize: "27px",
+                                fontWeight: 700,
+                                fontFamily: "'DM Sans', sans-serif",
+                                letterSpacing: "0.04em",
+                                opacity: 0.9,
+                                ...style,
+                            }}
+                        >
+                            {label}
+                        </span>
+                    ))}
+                </div>
             </div>
         </div>
     );

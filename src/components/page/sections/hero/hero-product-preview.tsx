@@ -1,14 +1,35 @@
 "use client"
 
-import { useState, useRef } from 'react';
-import type { Swiper as SwiperType } from "swiper"
+import { useState, useRef, useEffect } from 'react';
+import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from 'next/image';
 
+const useIsHorizontal = () => {
+  const [isHorizontal, setIsHorizontal] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const check = () => {
+      // ✅ matches xl (1280) and md (768) CSS breakpoints
+      setIsHorizontal(window.innerWidth < 768 || window.innerWidth >= 1024);
+    };
+
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  return isHorizontal;
+};
+
+const VERTICAL_HEIGHT = 420;
+
 const HeroProductPreview = () => {
+  const isHorizontal = useIsHorizontal();
+
   const previewImages = [
     '/hero-product/preview/preview-1.png',
     '/hero-product/preview/preview-2.png',
@@ -22,47 +43,52 @@ const HeroProductPreview = () => {
   const [mainImage, setMainImage] = useState(previewImages[0]);
   const swiperRef = useRef<SwiperType | null>(null);
 
-  return (
-    <div className="flex flex-col items-center w-full">
+  // ✅ avoid hydration mismatch
+  if (isHorizontal === null) return null;
 
-      {/* Main Hero Display */}
-      <div className="w-full max-h-[550px] aspect-square overflow-hidden 
-      rounded-lg shadow-lg border border-gray-100 flex items-center justify-center
-       bg-white mb-[15px] max-md:mb-[10px]"
-       >
+  return (
+    <div className="flex w-full flex-col gap-[15px] lg:flex-row xl:flex-col">
+
+      {/* Main image */}
+      <div className="w-full aspect-square overflow-hidden rounded-lg border border-gray-100 bg-white flex items-center justify-center">
         <Image
           src={mainImage}
           alt=""
-          className="object-contain transition-opacity duration-300 ease-in-out w-full h-full"
+          className="object-contain w-full h-full transition-opacity duration-300 ease-in-out"
           width={550}
           height={550}
         />
       </div>
-      {/* Thumbnails Row */}
-      <div className="w-full min-w-0">
+
+      {/* Thumbnails */}
+      {/* ✅ horizontal = full width strip, vertical = fixed-width side column */}
+      <div
+        className={isHorizontal ? "w-full h-[85px] max-lg:h-[70px]" : "w-[85px]"}
+        style={!isHorizontal ? { height: `${VERTICAL_HEIGHT}px` } : {}}
+      >
         <Swiper
           modules={[Navigation]}
-          onBeforeInit={(swiper) => {
-            swiperRef.current = swiper;
-          }}
+          onBeforeInit={(swiper) => { swiperRef.current = swiper; }}
+          direction={isHorizontal ? "horizontal" : "vertical"}
+          slidesPerView={isHorizontal ? 6.2 : 5}
           spaceBetween={8}
-          slidesPerView={6.2}
-          className="mySwiper"
+          style={!isHorizontal ? { height: `${VERTICAL_HEIGHT}px` } : {}}
+          className="h-full w-full"
         >
           {previewImages.map((img, index) => (
             <SwiperSlide key={index}>
               <button
                 onClick={() => setMainImage(img)}
-                className={`w-full aspect-square m-0.5 border-2 rounded-md overflow-hidden transition-all cursor-pointer block ${
+                className={`block aspect-square w-full cursor-pointer overflow-hidden rounded-[8px] border-2 transition-all ${
                   mainImage === img
-                    ? 'border-purple-600 scale-105'
+                    ? 'scale-[1.02] border-rich-purple'
                     : 'border-transparent opacity-70 hover:opacity-100'
                 }`}
               >
                 <Image
                   src={img}
                   alt=""
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                   width={82}
                   height={82}
                 />
@@ -71,6 +97,7 @@ const HeroProductPreview = () => {
           ))}
         </Swiper>
       </div>
+
     </div>
   );
 };
