@@ -19,11 +19,6 @@
   --text-fluid-2xl: clamp(30px, calc(23px + 1.1vw), 37px);
 }
 
-@custom-media --sd (width <=470px);
-@custom-media --semi-md (width <=790px);
-@custom-media --md (width <=1120px);
-@custom-media --lg (width > 1120px);
-
 @theme inline {
   /* Color Plate */
   --color-rich-purple: var(--rich-purple);
@@ -39,6 +34,7 @@
   --font-figtree: var(--font-figtree);
   --font-sfpro: var(--font-sfpro);
   --font-satoshi: var(--font-satoshi);
+  --font-nunito-sans: var(--font-nunito-sans);
   /* fluid text: clamp(min, calc(intercept + vw-factor), max) */
   --text-fluid-xs: var(--text-fluid-xs);
   --text-fluid-sm: var(--text-fluid-sm);

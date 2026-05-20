@@ -18,12 +18,12 @@ export const ingredientsDescription: IngredientDecsription[] = [
     imageUri: "/images/ingredients/hyaluronic-acid.png"
   },
   {
-    name: "Retinol (Vitamin A)",
+    name: "Vitamin A",
     description: `Known as the "gold standard" for anti-aging. It accelerates cell turnover and stimulates collagen production to deeply repair wrinkles and refine skin texture.`,
     imageUri: "/images/ingredients/vitamin-a.png"
   },
   {
-    name: "Vitamin C (L-Ascorbic Acid)",
+    name: "Vitamin C",
     description: `A powerful antioxidant that brightens skin tone and protects against environmental damage (like pollution and UV rays).`,
     imageUri: "/images/ingredients/vitamin-c.jpg"
   }

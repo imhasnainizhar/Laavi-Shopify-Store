@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import { Pagination } from "swiper/modules";
 import { resultInNinetyDays } from "@/db/results-90-days";
-import StarIcon from "@/components/ui/icons/yellow-star";
+import YellowStarIcon from "@/components/ui/icons/yellow-star";
 import ImageIconSvg from "@/components/ui/icons/img-icon";
 import { PrevNavigation, NextNavigation } from '@/components/ui/buttons/paginations/arrow-paginations';
 
@@ -28,7 +28,7 @@ export default function ResultsCarousel() {
                     `w-full flex flex-col justify-center items-center gap-8 lg:gap-13`
                 }>
                     <div className={
-                        `w-full max-w-7xl`
+                        `w-full md:max-w-[400px] lg:max-w-[800px] 2xl:max-w-[1280px]`
                     }>
                         <Swiper
                             grabCursor={true}
@@ -52,7 +52,7 @@ export default function ResultsCarousel() {
                             watchOverflow={true}
                             onBeforeInit={(swiper) => { swiperRef.current = swiper; }}
                             className={
-                                `align-stretched_swiper w-full h-auto max-w-95 lg:max-w-7xl`
+                                `w-full h-auto align-stretched_swiper`
                             }
                         >
                             {resultInNinetyDays.map((review, i) => {
@@ -89,11 +89,11 @@ export default function ResultsCarousel() {
                                                     <div className={
                                                         `flex gap-2 p-1 justify-center items-center`
                                                     }>
-                                                        <StarIcon />
-                                                        <StarIcon />
-                                                        <StarIcon />
-                                                        <StarIcon />
-                                                        <StarIcon />
+                                                        <YellowStarIcon />
+                                                        <YellowStarIcon />
+                                                        <YellowStarIcon />
+                                                        <YellowStarIcon />
+                                                        <YellowStarIcon />
                                                     </div>
                                                     <div>{timeAgo}</div>
                                                 </div>

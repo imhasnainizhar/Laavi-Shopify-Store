@@ -5,7 +5,7 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { PrevNavigation, NextNavigation } from "@/components/ui/buttons/paginations/arrow-paginations";
 import ImageIconSvg from "@/components/ui/icons/img-icon";
-import StarIcon from "@/components/ui/icons/yellow-star";
+import YellowStarIcon from "@/components/ui/icons/yellow-star";
 import { useRef } from "react";
 import { realResults } from "@/db/real-results";
 
@@ -15,11 +15,11 @@ export default function RealResultsCarousel() {
 
     return (
         <div className={
-            `w-full h-auto my-13`
+            `w-full h-auto mt-15 mb-5`
         }> 
             <div className={
                 `py-7.5 px-6 lg:px-12.5 flex flex-col items-center justify-center
-                 gap-20 lg:gap-25`
+                 gap-10 lg:gap-15`
             }>
                 <div className="font-extrabold text-center text-fluid-2xl
                 text-rich-purple">Real Results</div>
@@ -27,7 +27,7 @@ export default function RealResultsCarousel() {
                     `w-full flex flex-col justify-start items-center gap-14`
                 }>
                     <div className={
-                        `w-full max-w-7xl`
+                        `w-full md:max-w-[400px] lg:max-w-[800px] 2xl:max-w-[1280px]`
                     }>
                         <Swiper
                             grabCursor={true}
@@ -49,8 +49,7 @@ export default function RealResultsCarousel() {
                             }}
                             watchOverflow={true}
                             onBeforeInit={(swiper) => { swiperRef.current = swiper; }}
-                            className="w-full h-auto 2xl:max-w-7xl align-stretched_swiper max-w-[380px] 
-                            lg:max-w-[1280px]"
+                            className="w-full h-auto align-stretched_swiper"
                         >
                             {realResults.map((review, i) => {
                                 const timeAgoInDays = review.timeAgoInDays;
@@ -85,11 +84,11 @@ export default function RealResultsCarousel() {
                                                     <div className={
                                                         `flex gap-2 p-1 justify-center items-center`
                                                     }>
-                                                        <StarIcon />
-                                                        <StarIcon />
-                                                        <StarIcon />
-                                                        <StarIcon />
-                                                        <StarIcon />
+                                                        <YellowStarIcon />
+                                                        <YellowStarIcon />
+                                                        <YellowStarIcon />
+                                                        <YellowStarIcon />
+                                                        <YellowStarIcon />
                                                     </div>
                                                     <div>{timeAgo}</div>
                                                 </div>

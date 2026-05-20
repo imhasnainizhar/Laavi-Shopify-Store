@@ -4,6 +4,7 @@ import { Outfit } from 'next/font/google';
 import localFont from 'next/font/local';
 import { Poppins } from 'next/font/google';
 import { Figtree } from 'next/font/google';
+import { Nunito_Sans } from "next/font/google";
 
 /*
 But it in the end of footer to credit the author: 
@@ -62,6 +63,13 @@ export const satoshi = localFont({
   variable: '--font-satoshi',
 })
 
+export const nunitoSans = Nunito_Sans({
+  subsets: ["latin"],
+  variable: "--font-nunito-sans",
+  display: "swap",
+});
+
+
 export const metadata: Metadata = {
   title: "LAVVI | Our Store",
   description: "Lavvi® Micro-Infusion Hair Growth Treatment",
@@ -75,9 +83,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${figtree.variable} ${sfPro.variable} ${poppins.variable} ${satoshi.variable} h-full antialiased`}
+      className={`
+        ${outfit.variable} 
+        ${figtree.variable} 
+        ${sfPro.variable} 
+        ${poppins.variable} 
+        ${satoshi.variable} 
+        ${nunitoSans.variable}
+        h-full antialiased`
+      }
     >
-      <body className="min-h-full w-full min-w-[360px] flex flex-col">{children}</body>
+      <body className={
+        `min-h-full w-full min-w-[360px] flex flex-col`
+      }>{children}</body>
     </html>
   );
 }

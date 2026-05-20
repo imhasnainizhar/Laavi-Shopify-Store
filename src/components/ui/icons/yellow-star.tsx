@@ -1,15 +1,15 @@
 import { SVGProps } from "react";
 
-interface StarIconProps extends SVGProps<SVGSVGElement> {
+interface YellowStarIconProps extends SVGProps<SVGSVGElement> {
   width?: number | string;
   height?: number | string;
 }
 
-export default function StarIcon({
+export default function YellowStarIcon({
   width = 20,
   height = 19,
   ...props
-}: StarIconProps) {
+}: YellowStarIconProps) {
   return (
     <svg
       width={width}

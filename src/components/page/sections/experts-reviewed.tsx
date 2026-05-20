@@ -1,6 +1,6 @@
 const DermatologistSection = () => {
   return (
-    <section className="w-full px-6 py-12 md:py-20 max-w-7xl mx-auto font-sans">
+    <section className="w-full px-6 py-12 md:py-20 max-w-[1920px] mx-auto font-sans">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-12 md:gap-20">
 
         {/* Left Content Column */}

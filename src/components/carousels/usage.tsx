@@ -42,7 +42,7 @@ export default function UsageCarousel() {
             `w-full text-text-secondary mt-20 bg-ghost-white`
         }>
             <div className={
-                `w-full flex flex-col`
+                `w-full flex flex-col items-center`
             }>
                 <div className={
                     `w-full flex-flex-col items-center`
@@ -59,7 +59,7 @@ export default function UsageCarousel() {
                     </div>
                 </div>
                 <div className={
-                    `w-full flex justify-center md:max-w-[1280px] xl:max-w-7xl px-12.5 only-overflow-y-visible_swiper`
+                    `w-full max-w-[1200px] flex justify-center px-6 lg:px-12.5 only-overflow-y-visible_swiper`
                 }>
                     <Swiper
                         grabCursor={true}
@@ -85,11 +85,11 @@ export default function UsageCarousel() {
                                         {usage.count}
                                     </div>
                                     <div className={
-                                        `p-4 text-text-secondary text-shadow-text-primary text-fluid-lg flex
+                                        `p-3 text-text-secondary text-shadow-text-primary text-fluid-lg flex
                                              flex-col justify-center items-center h-full`
                                     }>
                                         <div className={
-                                            `w-full h-95 p-4 bg-black rounded-xl mb-10 mt-5`
+                                            `w-full h-95 p-4 bg-black rounded-xl mb-10 mt-8`
                                         }></div>
                                         <div className={
                                             `mb-12 flex-1`

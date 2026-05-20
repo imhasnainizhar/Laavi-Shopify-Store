@@ -8,7 +8,7 @@ import "swiper/css";
 export default function IngredientsCarousel() {
     return (
         <div className={
-            `w-full h-auto bg-white pb-20`
+            `w-full h-auto bg-white text-text-primary pb-20`
         }>
             <div className={
                 `py-7.5 px-6 lg:px-12.5 flex flex-col items-center justify-center
@@ -19,7 +19,7 @@ export default function IngredientsCarousel() {
                     Powerful Ingredients Inside
                 </div>
                 <div className={
-                    `w-full max-w-7xl`
+                    `w-full md:max-w-[400px] lg:max-w-[800px] 2xl:max-w-[1280px]`
                 }>
                     <Swiper
                         grabCursor={true}
@@ -28,15 +28,15 @@ export default function IngredientsCarousel() {
                         loop={false}
                         spaceBetween={30}
                         breakpoints={{
-                            0: { slidesPerView: 1 },
-                            550: { slidesPerView: 2 },
-                            870: { slidesPerView: 3 },
+                            0: { slidesPerView: 1.3 },
+                            768: { slidesPerView: 2.3 },
+                            1280: { slidesPerView: 3 },
                             1690: { slidesPerView: 4 },
                         }}
                         watchOverflow={true}
                         className={
-                            `align-stretched_swiper w-full h-auto max-w-[1280px]`
-                        }
+                            `align-stretched_swiper w-full h-auto`
+                        } 
                     >
                         {ingredientsDescription.map((ingredient, i) => {
                             return (
@@ -49,17 +49,17 @@ export default function IngredientsCarousel() {
                                                 `w-full aspect-square relative`
                                             }>
                                                 <Image src={ingredient.imageUri} alt="" fill className={
-                                                    `object-cover`
+                                                    `object-cover rounded-xl`
                                                 } />
                                             </div>
                                             <div className={
-                                                `flex-1`
+                                                `flex flex-col items-cemter p-3.5 flex-1`
                                             }>
                                                 <div className={
-                                                    ``
+                                                    `font-sfpro font-bold text-fluid-lg text-center`
                                                 }>{ingredient.name}</div>
                                                 <div className={
-                                                    `select-none`
+                                                    `font-sfpro font-light text-fluid-base text-center select-none`
                                                 }>{ingredient.description}</div>
                                             </div>
                                         </div>

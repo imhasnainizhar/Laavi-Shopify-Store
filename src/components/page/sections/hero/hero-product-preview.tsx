@@ -43,7 +43,7 @@ const HeroProductPreview = () => {
   const [mainImage, setMainImage] = useState(previewImages[0]);
   const swiperRef = useRef<SwiperType | null>(null);
 
-  // ✅ avoid hydration mismatch
+  // Avoid hydration mismatch
   if (isHorizontal === null) return null;
 
   return (
@@ -61,7 +61,7 @@ const HeroProductPreview = () => {
       </div>
 
       {/* Thumbnails */}
-      {/* ✅ horizontal = full width strip, vertical = fixed-width side column */}
+      {/* horizontal = full width strip, vertical = fixed-width side column */}
       <div
         className={isHorizontal ? "w-full h-[85px] max-lg:h-[70px]" : "w-[85px]"}
         style={!isHorizontal ? { height: `${VERTICAL_HEIGHT}px` } : {}}

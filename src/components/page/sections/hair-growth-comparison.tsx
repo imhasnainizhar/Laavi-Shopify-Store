@@ -11,7 +11,7 @@ export default function HairGrowthComparison() {
 
     return (
         <div className={
-            `min-h-screen bg-[#fdfaff] font-sans px-4 py-8 md:p-12 text-[#1a1a1a]`
+            `bg-[#fdfaff] font-sans px-4 py-8 md:p-12 mb-10 text-[#1a1a1a]`
         }>
             <div className={
                 `w-full`

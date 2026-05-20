@@ -31,7 +31,7 @@ const TherapySection = () => {
             <div
                 className="absolute bottom-0 left-0 w-full h-[96%] bg-white lg:block z-1 overflow-hidden"
                 style={{
-                    clipPath: width > 1024 ? "ellipse(79% 83% at 63% 100%)" : "ellipse(150% 93% at 77% 100%)",
+                    clipPath: width > 1024 ? "ellipse(79% 83% at 69% 100%)" : "ellipse(150% 93% at 77% 100%)",
                 }}
             />
             <div className='flex flex-col xl:gap-10 items-center justify-start z-10 w-full h-auto p-4 md:px-5 xl:py-12'>
