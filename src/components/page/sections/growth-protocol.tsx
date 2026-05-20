@@ -3,6 +3,7 @@
 import React from 'react';
 import { Plus, X } from 'lucide-react';
 import Image from 'next/image';
+import { useIsDesktop } from '@/hooks/useInDesktop';
 
 const LavviGrowthProtocol = () => {
     const [openSection, setOpenSection] = React.useState(0);
@@ -30,27 +31,33 @@ const LavviGrowthProtocol = () => {
         }
     ];
 
+    const isDesktop = useIsDesktop();
+
     return (
         <section className={
             `relative w-full min-h-[500px] bg-gradient-to-r from-[#9333ea]
              to-[#a855f7] overflow-hidden font-sfpro`
         }>
             <div className="grid grid-cols-[1fr] grid-rows-[140px_1fr_1fr_50px_140px]
-                     lg:grid-cols-[140px_1fr_1fr_140px] lg:grid-rows-[1fr_100px]
+                     xl:grid-cols-[140px_1fr_1fr_140px] xl:grid-rows-[1fr_100px]
                      xl:grid-cols-[140px_1fr_1fr_140px] xl:grid-rows-[1fr_100px]
                         2xl:grid-cols-[140px_1fr_1fr_140px] 2xl:grid-rows-[1fr_100px]">
                 {/* Small Caps */}
                 <div className={
                     `flex col-start-1 col-span-1 row-start-1 row-span-1
-                     lg:row-span-2`
+                     xl:row-span-2`
                 }>
-                    <Image src={"/images/left-white-bush.png"} alt='' width={140} height={671} />
+                    {isDesktop ? (
+                        <Image src={"/images/left-white-bush.png"} alt='' width={140} height={671} />
+                    ) : (
+                        <Image src={"/images/top-white-bush.png"} alt='' width={1024} height={144} />
+                    )}
                 </div>
 
                 {/* Left Side: Accordion */}
                 <div className={
-                    `flex justify-center flex-col space-y-3 z-10 col-start-1 col-span-1 row-start-1 row-span-1
-                     lg:col-start-2`
+                    `flex justify-center mx-4.5 md:mx-12 flex-col space-y-3 z-10 col-start-1 col-span-1 row-start-2 row-span-1
+                     xl:col-start-2 xl:row-start-1`
                 }>
                     {steps.map((step, index) => (
                         <div
@@ -97,19 +104,19 @@ const LavviGrowthProtocol = () => {
 
                 {/* Right Side: Product & Heading */}
                 <div className={
-                    `flex justify-center items-end flex-col text-center lg:text-left z-10 col-start-1 col-span-1 
-                    row-start-1 row-span-1 lg:col-start-3 lg:col-span-2 lg:mt-25`
+                    `flex justify-center items-center xl:items-end flex-col text-center xl:text-left z-10 col-start-1 col-span-1 
+                    row-start-3 row-span-1 xl:col-start-3 xl:col-span-2 xl:row-start-1 xl:row-span-1 xl:mt-25`
                 }>
                     <h2 className={
-                        `text-fluid-2xl font-bold text-white capitalize leading-tight text-center`
+                        `text-fluid-xl 2xl:text-fluid-2xl mt-8 mx-5 xl:mx-2 xl:mt-0 font-bold text-white capitalize leading-tight text-center`
                     }>
                         Designed To Support Visible <br />
                         Growth Across A 12-Week Protocol
                     </h2>
 
                     <div className={
-                        `relative flex justify-center lg:justify-start items-end`
-                         
+                        `relative flex justify-center xl:justify-start items-end`
+
                     }>
                         <Image src={"/images/product-image2.png"} alt='' width={630} height={420} />
                     </div>
@@ -117,11 +124,11 @@ const LavviGrowthProtocol = () => {
 
                 {/* CTA Button */}
                 <div className={
-                    `flex justify-center col-start-1 col-span-1 row-start-1 row-span-1
-                     lg:col-start-2 lg:col-span-3 lg:row-start-2`
+                    `flex justify-center col-start-1 col-span-1 row-start-4 row-span-1
+                     xl:col-start-2 xl:col-span-3 xl:row-start-2`
                 }>
                     <div className={
-                        `w-[clamp(320px,5vw,510px)] h-[clamp(50px,5vh,70px)] bg-rich-purple hover:bg-[#6b21a8] text-white font-bold py-4 px-12
+                        `w-[clamp(320px,26vw,510px)] h-[clamp(50px,3.6vh,70px)] bg-rich-purple hover:bg-[#6b21a8] text-white font-bold py-4 px-12
                          rounded-[10px] border border-white/20 shadow-xl transition-all transform
                          hover:scale-105 cursor-pointer text-center`
                     }>
@@ -130,10 +137,14 @@ const LavviGrowthProtocol = () => {
                 </div>
                 {/* Main Infuser Placeholder */}
                 <div className={
-                    `flex col-start-1 col-span-1 row-start-5
-                     row-span-1 lg:row-span-2 lg:col-start-5`
+                    `${!isDesktop && "w-full"} flex col-start-1 col-span-1 row-start-5
+                     row-span-1 xl:row-span-2 xl:col-start-5`
                 }>
-                    <Image src={"/images/right-white-bush.png"} alt='' width={140} height={671} />
+                    { isDesktop ? (
+                        <Image src={"/images/right-white-bush.png"} alt='' width={140} height={671} />
+                    ) : (
+                        <Image src={"/images/bottom-white-bush.png"} alt='' width={1024} height={144}/>
+                    )}
                 </div>
             </div>
         </section>

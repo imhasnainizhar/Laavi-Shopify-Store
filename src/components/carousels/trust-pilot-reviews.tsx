@@ -116,12 +116,12 @@ export default function TrustPilotReviews() {
                     }>
                         Excellent
                         <span className={
-                            `w-[clamp(140px.5vw,180)] h-[clamp(25px,2.7vh,35px)]`
+                            `w-[clamp(140px,9.3vw,180px)] h-[clamp(25px,1.8vh,35px)]`
                         }><Image src={"/icons/4.5-rating-green-stars.png"} alt="" width={180} height={34} /></span>
                         4.5/5
                     </span>
                     <span className={
-                        `w-[clamp(140px,6vw,160px)] h-[clamp(33px,2.7vh,40px)]`
+                        `w-[clamp(140px,9.3vw,180px)] h-[clamp(25px,1.8vh,35px)]`
                     }>
                         <Image src={"/logos/trust-pilot.png"} alt="" width={158} height={33} />
                     </span>

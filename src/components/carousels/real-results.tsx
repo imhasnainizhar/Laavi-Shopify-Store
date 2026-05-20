@@ -119,8 +119,8 @@ export default function RealResultsCarousel() {
                                                          gap-2.5 mb-5`
                                                     }>
                                                         {review.previousChallenges.map((challenge, idx) => (
-                                                            <span key={idx} className="w-[clamp(102px,10vw,128px)]
-                                                            h-[clamp(25px,10vh,31px)] rounded-[11px] text-[14px]
+                                                            <span key={idx} className="w-[clamp(102px,6.5vw,128px)]
+                                                            h-[clamp(25px,1.6vh,32px)] rounded-[11px] text-[14px]
                                                             bg-vibrant-lavender text-white flex items-center justify-center leading-none text-center">
                                                                 {challenge}
                                                             </span>

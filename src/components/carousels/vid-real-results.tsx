@@ -16,7 +16,7 @@ export default function RealResultsVidCarousel() {
             `w-full my-13`
         }>
             <div className={
-                `py-7.5 px-6 lg:px-12.5 flex items-center justify-center gap-20
+                `py-7.5 flex items-center justify-center gap-20
                  lg:gap-25`
             }>
                 <div className={
@@ -33,11 +33,11 @@ export default function RealResultsVidCarousel() {
                             spaceBetween={30}
                             breakpoints={{
                                 0:    { slidesPerView: 1.3 },
-                                560: { slidesPerView: 2.3 },
-                                768:  { slidesPerView: 3.3 },
-                                1280: { slidesPerView: 5.3 },
-                                1690: { slidesPerView: 7.3 },
-                                2080: { slidesPerView: 9.3 },
+                                768:  { slidesPerView: 2.7 },
+                                980: { slidesPerView: 3.3 },
+                                1080: { slidesPerView: 3.7 },
+                                1690: { slidesPerView: 5.7 },
+                                2080: { slidesPerView: 6.3 },
                         }}
                             watchOverflow={true}
                             onBeforeInit={(swiper) => { swiperRef.current = swiper; }}

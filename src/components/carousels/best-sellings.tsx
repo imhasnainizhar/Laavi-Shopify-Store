@@ -145,7 +145,7 @@ export default function BestSellingProductsCarousel() {
                                              lg:col-start-2 lg:col-span-3 lg:row-start-2 px-4 pb-4`
                                         }>
                                             <div className={
-                                                `w-full h-[clamp(50px,5vh,70px)] bg-rich-purple
+                                                `w-full h-[clamp(50px,3.6vh,70px)] bg-rich-purple
                                                  hover:bg-[#6b21a8] text-white font-bold py-4 px-12 rounded-[10px]
                                                  border border-white/20 shadow-xl transition-all transform
                                                  hover:scale-105 cursor-pointer text-center`
